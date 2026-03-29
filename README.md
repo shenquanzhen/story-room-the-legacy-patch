@@ -367,26 +367,6 @@ projects/<your-project>/
 
 如果对外发布，建议明确区分二者角色。
 
-## 推送到 GitHub（Passkey / 浏览器登录）
-
-命令行里的 `git` 不能直接扫 Passkey。推荐用 **GitHub CLI（`gh`）** 打开浏览器登录（网页可用 Passkey），由 `gh` 配置 HTTPS 凭据后再 `git push`。
-
-**环境：** 本地 **WSL**，目录 `/root/.openclaw/story-room-the-legacy-patch`（按实际 home 调整）。
-
-```bash
-sudo apt update && sudo apt install -y gh   # 若未安装
-cd /root/.openclaw/story-room-the-legacy-patch
-gh auth login    # 选 GitHub.com、HTTPS、浏览器登录
-
-git add -A && git status
-git commit -m "chore: sync"    # 有变更时再提交
-git branch -M main
-git remote add origin https://github.com/<用户>/<仓库>.git   # 首次
-git push -u origin main
-```
-
-**成功：** 显示 Writing objects 100%，远端能看到文件。**失败：** `Authentication failed` → 重跑 `gh auth login`；`remote origin already exists` → `git remote remove origin` 后重加。勿把 Token 写进 remote URL。
-
 ---
 
 # 适合谁
