@@ -173,6 +173,116 @@ projects/<project-name>/
 
 ---
 
+## This skill reuses existing repository docs instead of duplicating them
+
+为了避免 skill 目录内部再维护一套重复的 README / INSTALL / examples / prompts 文档，本 skill 默认**复用仓库级现有文档**。
+
+### 1. 依赖哪些现有文档
+本 skill 的实际能力边界与工作方式，依赖于以下现有文档：
+
+#### 身份与用户偏好
+- `SOUL.md`
+- `USER.md`
+- `IDENTITY.md`
+
+#### 多代理分工与总控规则
+- `AGENTS.md`
+- `routing-matrix.md`
+- `agent-contracts.md`
+- `merge-protocol.md`
+- `revision-protocol.md`
+- `autonomy-policy.md`
+
+#### 工作流入口
+- `workflows/comic-pipeline.md`
+- `workflows/runbook.md`
+- `workflows/task-entry.md`
+- `workflows/storyboard-pipeline.md`
+
+#### 模板入口
+- `templates/`
+
+#### 长线季播 / orchestration 规则
+- `season-pipeline.md`
+- `season-orchestrator-playbook.md`
+- `season-review-protocol.md`
+- `delivery-spec.md`
+- `execution-spec.md`
+- `artifact-naming.md`
+
+#### 新 agent / new space 启动说明
+- `SETUP.md`
+- `BOOTSTRAP.md`
+- `迁移当前工作流到新Agent与新Space所需文档清单.md`
+
+### 2. 新用户推荐阅读顺序
+如果一个第一次接触本 skill 的用户想快速理解怎么使用，推荐阅读顺序如下：
+
+1. `README.md` 或 `README_EN.md`
+2. `SETUP.md`
+3. `SOUL.md`
+4. `USER.md`
+5. `AGENTS.md`
+6. `workflows/comic-pipeline.md`
+7. `workflows/runbook.md`
+8. `workflows/task-entry.md`
+9. `workflows/storyboard-pipeline.md`（如涉及视觉 / production）
+10. `templates/`（按任务需要打开具体模板）
+
+### 3. 本 skill 不重复维护 README / INSTALL
+本 skill 的设计原则是：
+- **skill 目录只保留一份核心 `SKILL.md`**
+- 仓库级说明统一复用：
+  - `README.md`
+  - `README_EN.md`
+  - `SETUP.md`
+  - 迁移说明与 workflow 文档
+
+也就是说：
+- 不额外新增 `skills/drama-orchestrator/README.md`
+- 不额外新增 `skills/drama-orchestrator/INSTALL.md`
+- 不额外新增 `skills/drama-orchestrator/examples.md`
+- 不额外新增独立 prompts / references 目录
+
+这样可以减少重复维护，并保证 skill 与仓库主体说明始终一致。
+
+### 4. 示例项目入口
+如果使用者想看一个完整示例项目是如何从命题一路推进到 production 资产的，可直接查看：
+- `projects/perfect-heir/`
+
+注意：
+- 它是 **sample project**
+- 用于理解 workflow 与资产层级
+- 不应默认被新项目继承为故事上下文
+
+### 5. 模板入口
+如果使用者想知道具体交付文件“应长成什么样”，应优先查看：
+- `templates/`
+
+包括但不限于：
+- story outline
+- season bible
+- scene script
+- review checklist
+- storyboard sheet
+- storyboard review
+- continuity ledger
+
+### 6. 工作流入口
+如果使用者想知道本 skill 实际遵循什么 pipeline，应优先查看：
+- `workflows/comic-pipeline.md`
+- `workflows/runbook.md`
+- `workflows/task-entry.md`
+- `workflows/storyboard-pipeline.md`
+
+这四份文件，分别回答：
+- 默认故事生产 loop 是什么
+- 接任务后怎么分类与推进
+- 怎么把自然语言需求转成 task brief
+- 如果要继续到导演/视觉层怎么接
+
+---
+
 ## Standard execution flow
 
 被触发后，建议 agent 按如下显性顺序推进：
