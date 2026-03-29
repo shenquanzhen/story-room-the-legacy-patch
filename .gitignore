@@ -1,0 +1,6 @@
+.openclaw/
+*.sqlite
+*.sqlite3
+*.db
+.DS_Store
+Thumbs.db

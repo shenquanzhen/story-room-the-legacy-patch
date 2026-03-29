@@ -16,6 +16,7 @@
 # 目录导航
 - [仓库定位](#仓库定位)
 - [快速开始](#快速开始)
+- [如何新建一个 agent / workspace](#如何新建一个-agent--workspace)
 - [适合什么场景](#适合什么场景)
 - [核心理念](#核心理念)
 - [仓库结构总览](#仓库结构总览)
@@ -120,6 +121,58 @@ projects/<your-project>/
 
 ---
 
+# 如何新建一个 agent / workspace
+
+如果你的目标不是继续当前项目，而是：
+- 新建一个新 agent
+- 新开一个不继承旧故事内容的 workspace / space
+
+推荐这样做：
+
+## 1. 保留方法层文件
+必须保留：
+- `SOUL.md`
+- `USER.md`
+- `IDENTITY.md`
+- `AGENTS.md`
+- `workflows/`
+- `templates/`
+
+## 2. 不要继承旧项目资产
+不要默认继承：
+- `projects/perfect-heir/`
+- 旧项目剧情
+- 旧角色与 continuity
+- 旧 production 资产
+
+## 3. 新建自己的项目目录
+直接创建：
+
+```text
+projects/<your-project>/
+  00_admin/
+  01_brief/
+  02_bible/
+  03_structure/
+  04_continuity/
+  05_scripts/
+  06_storyboard/
+  06_production/
+  07_checkpoint/
+  08_scripts/season_complete/
+  09_assembly/
+```
+
+## 4. 第一份文件一定先写 `task-brief.md`
+这是整个 pipeline 的起点。
+
+## 5. 更详细说明
+请直接看：
+- `SETUP.md`
+- `迁移当前工作流到新Agent与新Space所需文档清单.md`
+
+---
+
 # 适合什么场景
 
 ## 适合
@@ -155,13 +208,13 @@ projects/<your-project>/
 # 仓库结构总览
 
 ## 身份与人格层
-- `SOUL.md`：agent 核心人格、边界、语气、工作哲学
-- `USER.md`：用户偏好与协作方式
-- `IDENTITY.md`：名称、气质、自我识别
-- `MEMORY.md`：长期方法性记忆（建议谨慎保留项目性内容）
+- `SOUL.md`
+- `USER.md`
+- `IDENTITY.md`
+- `MEMORY.md`
 
 ## 多代理与运行规则层
-- `AGENTS.md`：总控模型、子角色分工、责任路由、输出合同
+- `AGENTS.md`
 - `agent-contracts.md`
 - `routing-matrix.md`
 - `autonomy-policy.md`
@@ -181,98 +234,61 @@ projects/<your-project>/
 - `next-run-briefing-template.md`
 
 ## 子代理定义
-位于 `agents/`：
-- `plot-agent.md`
-- `character-agent.md`
-- `script-agent.md`
-- `review-agent.md`
-- `storyboard-agent.md`
-- `storyboard-review-agent.md`
+位于 `agents/`
 
 ## 工作流
-位于 `workflows/`：
-- `comic-pipeline.md`
-- `runbook.md`
-- `task-entry.md`
-- `storyboard-pipeline.md`
+位于 `workflows/`
 
 ## 模板
-位于 `templates/`：
-- story outline
-- season bible
-- scene script
-- review checklist
-- storyboard sheet
-- continuity ledger
-- orchestrator prompt 等
+位于 `templates/`
 
 ## 参考样例
-位于 `references/`：
-- sample season assembly
-- sample storyboard package
-- sample shot deck package 等
+位于 `references/`
 
 ---
 
 # 核心工作流（简版）
 
-这套仓库推荐的典型推进顺序是：
-
-1. **任务入口标准化**
-2. **series brief**
-3. **season bible**
-4. **episode map**
-5. **continuity skeleton**
-6. **batch scripts**
-7. **review / checkpoint**
-8. **season assembly package**
-9. **逐集精修台词**
-10. **导演分场**
-11. **拍摄对白压缩**
-12. **宣发金句提炼**
-13. **场景清单**
-14. **制片拆景与拍摄统筹**
-15. **高能场保护与执行辅助资产**
-
-你可以在项目里按需停在任一层，但推荐保持“上一层为下一层服务”的顺序。
+1. 任务入口标准化
+2. series brief
+3. season bible
+4. episode map
+5. continuity skeleton
+6. batch scripts
+7. review / checkpoint
+8. season assembly package
+9. 逐集精修台词
+10. 导演分场
+11. 拍摄对白压缩
+12. 宣发金句提炼
+13. 场景清单
+14. 制片拆景与拍摄统筹
+15. 高能场保护与执行辅助资产
 
 ---
 
 # 多代理角色设计
 
 默认 child roles：
-
-- **plot-agent**：概念、结构、反转、beat、hook map
-- **character-agent**：角色包、关系图、voice、矛盾点
-- **script-agent**：逐场剧本、对白、节奏、场次推进
-- **review-agent**：逻辑审查、节奏审查、hook 诊断、修订建议
-- **storyboard-agent**：导演分场、镜头方向、场次视觉化
-- **storyboard-review-agent**：导演分场 / storyboard 的执行审查
-
-这个设计的关键不是“多”，而是**每个人只负责自己该负责的那一块**。
+- plot-agent
+- character-agent
+- script-agent
+- review-agent
+- storyboard-agent
+- storyboard-review-agent
 
 ---
 
 # 如何在新项目中使用
 
-## 最小启动步骤
 建议新项目启动时至少先读：
-
-1. `SOUL.md`
-2. `USER.md`
-3. `AGENTS.md`
-4. `workflows/comic-pipeline.md`
-5. `workflows/runbook.md`
-6. `workflows/task-entry.md`
-7. `workflows/storyboard-pipeline.md`
-
-然后：
-- 新建项目目录
-- 先写 `task-brief.md`
-- 再按 pipeline 往下推
-
-## 推荐启动方式
-新建一个全新的 `projects/<your-project>/` 目录，按类似层级组织。
+- `SOUL.md`
+- `USER.md`
+- `AGENTS.md`
+- `workflows/comic-pipeline.md`
+- `workflows/runbook.md`
+- `workflows/task-entry.md`
+- `workflows/storyboard-pipeline.md`
 
 ---
 
@@ -281,177 +297,84 @@ projects/<your-project>/
 当前仓库中已经包含一个完整项目案例：
 - `projects/perfect-heir/`
 
-该项目展示了如何把一个新命题从以下阶段一路推进：
+该项目展示了如何把一个新命题从：
 - brief
 - bible
 - episode map
 - continuity
-- full scripts
-- dialogue polish
+- script
+- dialogue
 - director breakdown
-- shooting dialogue cuts
-- promo quotes
-- production scene lists
-- production breakdowns
-- schedule-ready planning assets
+- production planning
+一路推进到可交接的多层资产包。
 
-## 注意
-这个案例项目的作用是：
-- **示范 workflow 怎么跑通**
-- **示范文件应该长成什么样**
-
-它**不应该**被新项目直接继承为默认故事上下文。
-
-如果你要把这个仓库当模板使用，建议：
-- 保留 `projects/perfect-heir/` 作为 sample
-- 或者未来把它迁到 `examples/` 目录
+### 注意
+它是 sample，不是默认继承内容。
 
 ---
 
 # 如果你要复制这套工作流，而不是复制当前项目
 
-如果你的目标是：
-- 复制当前工作方式
-- 但不继承当前具体故事内容
-
-推荐迁移这些文件：
-
-## 必带
+推荐迁移：
 - `SOUL.md`
 - `USER.md`
 - `IDENTITY.md`
 - `AGENTS.md`
 - `workflows/`
 - `templates/`
+- 各类 protocol / playbook / spec
 
-## 强烈建议带
-- `autonomy-policy.md`
-- `continuity-protocol.md`
-- `merge-protocol.md`
-- `revision-protocol.md`
-- `routing-matrix.md`
-- `season-pipeline.md`
-- `orchestrator-playbook.md`
-- `season-orchestrator-playbook.md`
-- `delivery-spec.md`
-- `execution-spec.md`
-- `artifact-naming.md`
-
-## 不要直接带
-- 任何具体项目目录（如 `projects/perfect-heir/`）
-- 任何已有 story bible / script / assembly / production 项目资产
-
-一句话：
-
-> **带走“怎么做”，不要带走“做了什么”。**
-
-仓库中也附了一份独立说明：
-- `迁移当前工作流到新Agent与新Space所需文档清单.md`
+不要直接迁移：
+- 具体项目资产目录
+- 旧 story bible / script / production 文件
+- `.openclaw/`
 
 ---
 
 # 推荐阅读顺序
 
-## 如果你是内容创作者 / 编剧
-建议先读：
-- `SOUL.md`
-- `AGENTS.md`
-- `workflows/comic-pipeline.md`
-- `workflows/runbook.md`
-- `templates/story-outline.md`
-- `templates/scene-script.md`
-- `templates/season-bible.md`
+按角色可参考：
+- 编剧 / 创作者
+- 总控 / orchestration
+- 导演 / 制片 / 执行
 
-## 如果你是总控 / orchestration 使用者
-建议先读：
-- `AGENTS.md`
-- `routing-matrix.md`
-- `orchestrator-playbook.md`
-- `season-orchestrator-playbook.md`
-- `merge-protocol.md`
-- `revision-protocol.md`
-
-## 如果你也做导演 / 制片层延伸
-建议再读：
-- `workflows/storyboard-pipeline.md`
-- `templates/storyboard-sheet.md`
-- `templates/storyboard-review.md`
-- `continuity-protocol.md`
-- `delivery-spec.md`
+（详见仓库其他说明文件）
 
 ---
 
 # 仓库特色
 
-## 1. 不停留在“写梗概”
-很多写作型 agent 只会停在 logline / premise / outline。  
-这套仓库的特色是：**可以继续往下走到执行层资产。**
-
-## 2. 不是单人创作，而是可持续 orchestration
-这里默认是一个 room，而不是一个单枪匹马的 writer。  
-总控不必什么都亲写，而是让每条 lane 做自己最擅长的事。
-
-## 3. 输出默认文件化
-这个仓库更偏向：
-- 文件资产
-- 目录结构
-- 版本节点
-- 可交接
-
-而不是把所有成果留在聊天里。
-
-## 4. 既适合创作，也适合 production handoff
-如果你要把故事进一步交给导演、制片、执行层，这套架构特别有用。
+- 不停留在“写梗概”
+- 不是单人创作，而是可持续 orchestration
+- 输出默认文件化
+- 适合 production handoff
 
 ---
 
 # 注意事项
 
-## 1. 不要把旧项目记忆直接混入新项目
-特别是：
-- 人物
-- 世界观
-- continuity
-- scene assets
-- production package
-
-## 2. MEMORY 只建议保留方法性长期记忆
-项目性记忆建议按项目单独放，不要默认长期继承。
-
-## 3. 分工越清楚，review 越好做
-不要让同一子角色同时负责：
-- 写初稿
-- 给自己评审
-- 再自己改自己
-
-## 4. 先锁结构，再做精修
-这套仓库最怕的不是“写得不够美”，而是：
-- 结构没锁就开始精修
-- 台词没稳就开始分场
-- 剧本没稳就开始制片拆景
+- 不要把旧项目记忆直接混入新项目
+- MEMORY 只建议保留方法性长期记忆
+- 分工越清楚，review 越好做
+- 先锁结构，再做精修
 
 ---
 
 # 当前仓库状态说明
-这个仓库里已经包含一个完整示范项目开发过程，但它不应该被自动视为新项目默认继承内容。  
-如果你想把这里作为模板仓库发布到 GitHub，推荐明确区分：
+当前仓库同时包含：
+- 可复用方法层
+- 一个完整 sample project
 
-- **方法层文件**：可复用
-- **项目层文件**：仅示范 / 仅案例
-
-如果未来你要公开发布，建议：
-- 可以保留项目案例作为 sample
-- 也可以把 sample 项目移到 `examples/` 或单独仓库
+如果对外发布，建议明确区分二者角色。
 
 ---
 
 # 适合谁
 
-这个仓库最适合：
-- 需要长期运行的故事 agent 使用者
+- 长期运行故事 agent 的使用者
 - 想把 AI 从“会写”推进到“会做项目”的人
-- 做中文短剧 / 连续剧 / 内容开发 pipeline 的团队
-- 想把创作与 production handoff 连起来的人
+- 中文短剧 / 连续剧开发团队
+- 需要创作与 production handoff 连通的人
 
 ---
 
@@ -461,11 +384,8 @@ projects/<your-project>/
 - `CONTRIBUTING.md`
 - `CHANGELOG.md`
 
-目前本仓库更像是一个**高度定制化的 story-room operating system**。
-
 ---
 
 # 最后一段
-如果你只想用一句话理解这个仓库：
 
 > 它不是“一个会写故事的 agent 配置”，而是一套让 agent 以 showrunner / orchestration / production handoff 方式持续工作的故事生产系统。
