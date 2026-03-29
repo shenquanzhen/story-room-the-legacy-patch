@@ -1,10 +1,35 @@
 # story-room-the-legacy-patch
 
+![Status](https://img.shields.io/badge/status-active-success)
+![Language](https://img.shields.io/badge/language-Chinese%20%2F%20English-blue)
+![Workflow](https://img.shields.io/badge/workflow-multi--agent-orange)
+![Focus](https://img.shields.io/badge/focus-story%20production-purple)
+
 一个面向**长线序列化故事开发**的多代理写作与生产工作流仓库。  
 它不是单纯的“写一个故事”，而是把**故事开发、剧本精修、导演分场、制片统筹、宣发辅助**整合进一套可复用的 pipeline 中。
 
 > 当前仓库最初用于中文短剧/都市家庭伦理/强钩子叙事方向，但其核心价值不在单一题材，而在于：
 > **如何把一个新故事项目，从概念一路推进到可拍、可统筹、可交接的多层资产包。**
+
+---
+
+# 目录导航
+- [仓库定位](#仓库定位)
+- [快速开始](#快速开始)
+- [适合什么场景](#适合什么场景)
+- [核心理念](#核心理念)
+- [仓库结构总览](#仓库结构总览)
+- [核心工作流（简版）](#核心工作流简版)
+- [多代理角色设计](#多代理角色设计)
+- [如何在新项目中使用](#如何在新项目中使用)
+- [示例项目说明](#示例项目说明)
+- [如果你要复制这套工作流，而不是复制当前项目](#如果你要复制这套工作流而不是复制当前项目)
+- [推荐阅读顺序](#推荐阅读顺序)
+- [仓库特色](#仓库特色)
+- [注意事项](#注意事项)
+- [当前仓库状态说明](#当前仓库状态说明)
+- [适合谁](#适合谁)
+- [License--使用建议](#license--使用建议)
 
 ---
 
@@ -28,6 +53,70 @@
 - 谁做什么
 - 什么时候停
 - 如何把结果留下来
+
+---
+
+# 快速开始
+
+如果你想把这个仓库当成一个**新项目工作流模板**来用，推荐按下面步骤开始。
+
+## 1. 先阅读核心文件
+建议至少先看：
+1. `SOUL.md`
+2. `USER.md`
+3. `AGENTS.md`
+4. `workflows/comic-pipeline.md`
+5. `workflows/runbook.md`
+6. `workflows/task-entry.md`
+7. `workflows/storyboard-pipeline.md`（如果你也要做导演/分场/拍摄层）
+
+## 2. 新建项目目录
+建议按如下结构创建：
+
+```text
+projects/<your-project>/
+  00_admin/
+  01_brief/
+  02_bible/
+  03_structure/
+  04_continuity/
+  05_scripts/
+  06_storyboard/
+  06_production/
+  07_checkpoint/
+  08_scripts/season_complete/
+  09_assembly/
+```
+
+## 3. 先写任务入口
+在新项目里先建立：
+- `00_admin/task-brief.md`
+
+把以下信息写清楚：
+- 项目名
+- 类型
+- 核心命题
+- 目标交付链条
+- 约束条件
+- opening hook
+- audience question
+- payoff promise
+- cliffhanger target
+
+## 4. 按 pipeline 往下推
+推荐顺序：
+1. series brief
+2. season bible
+3. episode map
+4. continuity skeleton
+5. batch scripts
+6. review / checkpoint
+7. season assembly package
+8. dialogue / storyboard / production 扩展资产
+
+## 5. 如果你只想复制工作流
+请看仓库内这份说明：
+- `迁移当前工作流到新Agent与新Space所需文档清单.md`
 
 ---
 
@@ -175,7 +264,7 @@
 4. `workflows/comic-pipeline.md`
 5. `workflows/runbook.md`
 6. `workflows/task-entry.md`
-7. （如涉及视觉）`workflows/storyboard-pipeline.md`
+7. `workflows/storyboard-pipeline.md`
 
 然后：
 - 新建项目目录
@@ -183,31 +272,45 @@
 - 再按 pipeline 往下推
 
 ## 推荐启动方式
-新建一个全新的 `projects/<your-project>/` 目录，按类似层级组织：
+新建一个全新的 `projects/<your-project>/` 目录，按类似层级组织。
 
-```text
-projects/<your-project>/
-  00_admin/
-  01_brief/
-  02_bible/
-  03_structure/
-  04_continuity/
-  05_scripts/
-  06_storyboard/
-  06_production/
-  07_checkpoint/
-  08_scripts/season_complete/
-  09_assembly/
-```
+---
 
-你也可以按自己需要调整，但建议保留“层级清楚、文件可交接”的原则。
+# 示例项目说明
+
+当前仓库中已经包含一个完整项目案例：
+- `projects/perfect-heir/`
+
+该项目展示了如何把一个新命题从以下阶段一路推进：
+- brief
+- bible
+- episode map
+- continuity
+- full scripts
+- dialogue polish
+- director breakdown
+- shooting dialogue cuts
+- promo quotes
+- production scene lists
+- production breakdowns
+- schedule-ready planning assets
+
+## 注意
+这个案例项目的作用是：
+- **示范 workflow 怎么跑通**
+- **示范文件应该长成什么样**
+
+它**不应该**被新项目直接继承为默认故事上下文。
+
+如果你要把这个仓库当模板使用，建议：
+- 保留 `projects/perfect-heir/` 作为 sample
+- 或者未来把它迁到 `examples/` 目录
 
 ---
 
 # 如果你要复制这套工作流，而不是复制当前项目
 
 如果你的目标是：
-
 - 复制当前工作方式
 - 但不继承当前具体故事内容
 
@@ -354,9 +457,9 @@ projects/<your-project>/
 
 # License / 使用建议
 如果你要公开发布到 GitHub，建议补充：
-- LICENSE
-- CONTRIBUTING.md（如果允许协作）
-- CHANGELOG.md（如果要长期维护）
+- `LICENSE`
+- `CONTRIBUTING.md`
+- `CHANGELOG.md`
 
 目前本仓库更像是一个**高度定制化的 story-room operating system**。
 

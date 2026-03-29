@@ -1,11 +1,36 @@
 # story-room-the-legacy-patch
 
+![Status](https://img.shields.io/badge/status-active-success)
+![Language](https://img.shields.io/badge/language-Chinese%20%2F%20English-blue)
+![Workflow](https://img.shields.io/badge/workflow-multi--agent-orange)
+![Focus](https://img.shields.io/badge/focus-story%20production-purple)
+
 A multi-agent writing and production workflow repository for **long-form serialized story development**.
 
 This repository is not just about “writing a story.” It is designed to carry a new story project all the way from **concept → structure → scripts → dialogue polish → director breakdown → production planning → promo support assets**.
 
 > While the current workspace originally focused on Chinese short drama / urban family ethics / high-hook serialized storytelling, the real value of this repository is not tied to one genre.
 > Its value is in the workflow: **how to move a new story project from idea to a reusable, handoff-ready asset system.**
+
+---
+
+# Table of Contents
+- [What this repository is](#what-this-repository-is)
+- [Quick Start](#quick-start)
+- [Best use cases](#best-use-cases)
+- [Core philosophy](#core-philosophy)
+- [Repository overview](#repository-overview)
+- [Core workflow (short version)](#core-workflow-short-version)
+- [Child roles](#child-roles)
+- [How to use this repo for a new project](#how-to-use-this-repo-for-a-new-project)
+- [Example project](#example-project)
+- [If you want the workflow, not the current story project](#if-you-want-the-workflow-not-the-current-story-project)
+- [Suggested reading paths by role](#suggested-reading-paths-by-role)
+- [What makes this repo different](#what-makes-this-repo-different)
+- [Important cautions](#important-cautions)
+- [Current repo status](#current-repo-status)
+- [Who this is for](#who-this-is-for)
+- [License / publishing suggestions](#license--publishing-suggestions)
 
 ---
 
@@ -27,6 +52,70 @@ but also:
 - which specialist role should do what
 - when to stop
 - how to preserve outputs as reusable assets
+
+---
+
+# Quick Start
+
+If you want to use this repository as a **new project workflow template**, start here.
+
+## 1. Read the core files first
+At minimum, read:
+1. `SOUL.md`
+2. `USER.md`
+3. `AGENTS.md`
+4. `workflows/comic-pipeline.md`
+5. `workflows/runbook.md`
+6. `workflows/task-entry.md`
+7. `workflows/storyboard-pipeline.md` (if you also care about directing / production layers)
+
+## 2. Create a fresh project folder
+Suggested structure:
+
+```text
+projects/<your-project>/
+  00_admin/
+  01_brief/
+  02_bible/
+  03_structure/
+  04_continuity/
+  05_scripts/
+  06_storyboard/
+  06_production/
+  07_checkpoint/
+  08_scripts/season_complete/
+  09_assembly/
+```
+
+## 3. Start with a task brief
+Create:
+- `00_admin/task-brief.md`
+
+Clarify at least:
+- project title
+- genre / format
+- core premise
+- deliverable chain
+- constraints
+- opening hook
+- suspense question
+- payoff promise
+- cliffhanger target
+
+## 4. Move down the pipeline
+Recommended order:
+1. series brief
+2. season bible
+3. episode map
+4. continuity skeleton
+5. batch scripts
+6. review / checkpoint
+7. season assembly package
+8. dialogue / storyboard / production extensions
+
+## 5. If you only want the workflow
+See this repo note (Chinese):
+- `迁移当前工作流到新Agent与新Space所需文档清单.md`
 
 ---
 
@@ -202,6 +291,38 @@ projects/<your-project>/
 ```
 
 You may adapt this, but the key principle is: **clear layers, reusable files, clean handoff points**.
+
+---
+
+# Example project
+
+This repository currently contains one full sample project path:
+- `projects/perfect-heir/`
+
+That project demonstrates how a brand-new story idea can be pushed through:
+- brief
+- bible
+- episode map
+- continuity
+- full scripts
+- dialogue polish
+- director breakdowns
+- shooting dialogue cuts
+- promo quote extraction
+- production scene lists
+- production breakdowns
+- schedule-ready planning assets
+
+## Important note
+The sample project exists to show:
+- **how the workflow runs end to end**
+- **what each asset layer should look like**
+
+It should **not** be treated as default inherited context for a new story project.
+
+If you publish this repo publicly, consider:
+- keeping `projects/perfect-heir/` as a sample project
+- or later moving examples into an `examples/` folder
 
 ---
 
