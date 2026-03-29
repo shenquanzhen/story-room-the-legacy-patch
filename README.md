@@ -40,7 +40,7 @@
 
 - 一个 **story orchestrator（故事总控）** 的工作底座
 - 一个 **multi-agent writers' room（多代理编剧室）** 的操作框架
-- 一个从 **brief → bible → episode map → script → review → storyboard → production assets** 的连续生产系统
+- 一个从 **brief（项目简报）→ bible（创作指南）→ episode map（分集大纲）→ script（剧本）→ review（审校）→ storyboard（分镜）→ production assets（制片资产包）** 的连续生产系统
 
 它适合：
 - 短剧 / 连续剧 / 轻季播项目开发
@@ -75,18 +75,18 @@
 建议按如下结构创建：
 
 ```text
-projects/<your-project>/
-  00_admin/
-  01_brief/
-  02_bible/
-  03_structure/
-  04_continuity/
-  05_scripts/
-  06_storyboard/
-  06_production/
-  07_checkpoint/
-  08_scripts/season_complete/
-  09_assembly/
+projects/<your-project>/                 # 单个项目根目录
+  00_admin/                              # 行政与任务入口
+  01_brief/                              # 项目 / 系列简报
+  02_bible/                              # 创作指南
+  03_structure/                          # 季 · 剧结构（分集骨架等）
+  04_continuity/                         # 连贯性与设定一致
+  05_scripts/                            # 剧本文稿
+  06_storyboard/                         # 分镜
+  06_production/                         # 制片 · 拍摄统筹
+  07_checkpoint/                         # 审校与里程碑检查点
+  08_scripts/season_complete/            # 成季定稿剧本
+  09_assembly/                           # 季播总装与交接资产包
 ```
 
 ## 3. 先写任务入口
@@ -99,21 +99,21 @@ projects/<your-project>/
 - 核心命题
 - 目标交付链条
 - 约束条件
-- opening hook
-- audience question
-- payoff promise
-- cliffhanger target
+- opening hook（开场钩子）
+- audience question（观众核心悬念）
+- payoff promise（回报 / 爽点承诺）
+- cliffhanger target（悬念落点目标）
 
 ## 4. 按 pipeline 往下推
 推荐顺序：
-1. series brief
-2. season bible
-3. episode map
-4. continuity skeleton
-5. batch scripts
-6. review / checkpoint
-7. season assembly package
-8. dialogue / storyboard / production 扩展资产
+1. series brief（系列 / 季前简报）
+2. season bible（季 创作指南）
+3. episode map（分集大纲）
+4. continuity skeleton（连贯骨架）
+5. batch scripts（批量剧本）
+6. review / checkpoint（审校 / 检查点）
+7. season assembly package（季播总装包）
+8. dialogue / storyboard / production 扩展资产（台词 / 分镜 / 制片 延伸产出）
 
 ## 5. 如果你只想复制工作流
 请看仓库内这份说明：
@@ -149,18 +149,18 @@ projects/<your-project>/
 直接创建：
 
 ```text
-projects/<your-project>/
-  00_admin/
-  01_brief/
-  02_bible/
-  03_structure/
-  04_continuity/
-  05_scripts/
-  06_storyboard/
-  06_production/
-  07_checkpoint/
-  08_scripts/season_complete/
-  09_assembly/
+projects/<your-project>/                 # 单个项目根目录
+  00_admin/                              # 行政与任务入口
+  01_brief/                              # 项目 / 系列简报
+  02_bible/                              # 创作指南
+  03_structure/                          # 季 · 剧结构（分集骨架等）
+  04_continuity/                         # 连贯性与设定一致
+  05_scripts/                            # 剧本文稿
+  06_storyboard/                         # 分镜
+  06_production/                         # 制片 · 拍摄统筹
+  07_checkpoint/                         # 审校与里程碑检查点
+  08_scripts/season_complete/            # 成季定稿剧本
+  09_assembly/                           # 季播总装与交接资产包
 ```
 
 ## 4. 第一份文件一定先写 `task-brief.md`
@@ -178,7 +178,7 @@ projects/<your-project>/
 ## 适合
 - 新故事项目从零启动
 - 已有概念，需要拆成 season 级资产
-- 需要多代理并行做：plot / character / script / review / storyboard
+- 需要多代理并行做：plot / character / script / review / storyboard（剧情 / 人物 / 剧本 / 审校 / 分镜）
 - 需要继续往拍摄执行层推进
 - 需要把结果沉淀成文件，而不是散落在聊天记录中
 
@@ -208,30 +208,30 @@ projects/<your-project>/
 # 仓库结构总览
 
 ## 身份与人格层
-- `SOUL.md`
-- `USER.md`
-- `IDENTITY.md`
-- `MEMORY.md`
+- `SOUL.md`（代理人格 · 价值边界）
+- `USER.md`（人类协作者偏好）
+- `IDENTITY.md`（对外身份与表述）
+- `MEMORY.md`（长期记忆入口）
 
 ## 多代理与运行规则层
-- `AGENTS.md`
-- `agent-contracts.md`
-- `routing-matrix.md`
-- `autonomy-policy.md`
-- `state-management.md`
-- `merge-protocol.md`
-- `revision-protocol.md`
-- `continuity-protocol.md`
+- `AGENTS.md`（子代理名单与职责）
+- `agent-contracts.md`（角色契约与交付界碑）
+- `routing-matrix.md`（任务路由矩阵）
+- `autonomy-policy.md`（自主执行策略）
+- `state-management.md`（状态与进度管理）
+- `merge-protocol.md`（多路产出合并规则）
+- `revision-protocol.md`（修订轮次与回退）
+- `continuity-protocol.md`（设定连贯协议）
 
 ## 季播 / 长线开发 playbook
-- `orchestrator-playbook.md`
-- `season-orchestrator-playbook.md`
-- `season-pipeline.md`
-- `season-review-protocol.md`
-- `delivery-spec.md`
-- `execution-spec.md`
-- `artifact-naming.md`
-- `next-run-briefing-template.md`
+- `orchestrator-playbook.md`（总控编排手册）
+- `season-orchestrator-playbook.md`（季播总控手册）
+- `season-pipeline.md`（季播管线说明）
+- `season-review-protocol.md`（季级审校协议）
+- `delivery-spec.md`（交付物规格）
+- `execution-spec.md`（执行层规格）
+- `artifact-naming.md`（资产命名规范）
+- `next-run-briefing-template.md`（下一轮运行简报模板）
 
 ## 子代理定义
 位于 `agents/`
@@ -250,13 +250,13 @@ projects/<your-project>/
 # 核心工作流（简版）
 
 1. 任务入口标准化
-2. series brief
-3. season bible
-4. episode map
-5. continuity skeleton
-6. batch scripts
-7. review / checkpoint
-8. season assembly package
+2. series brief（系列 / 季前简报）
+3. season bible（季世界观圣经）
+4. episode map（分集大纲）
+5. continuity skeleton（连贯骨架）
+6. batch scripts（批量剧本）
+7. review / checkpoint（审校 / 检查点）
+8. season assembly package（季播总装包）
 9. 逐集精修台词
 10. 导演分场
 11. 拍摄对白压缩
@@ -270,12 +270,12 @@ projects/<your-project>/
 # 多代理角色设计
 
 默认 child roles：
-- plot-agent
-- character-agent
-- script-agent
-- review-agent
-- storyboard-agent
-- storyboard-review-agent
+- plot-agent（剧情 / 结构）
+- character-agent（人物）
+- script-agent（剧本）
+- review-agent（审校）
+- storyboard-agent（分镜）
+- storyboard-review-agent（分镜审校）
 
 ---
 
@@ -298,14 +298,14 @@ projects/<your-project>/
 - `projects/perfect-heir/`
 
 该项目展示了如何把一个新命题从：
-- brief
-- bible
-- episode map
-- continuity
-- script
-- dialogue
-- director breakdown
-- production planning
+- brief（项目简报）
+- bible（创作指南）
+- episode map（分集大纲）
+- continuity（连贯与设定）
+- script（剧本）
+- dialogue（台词）
+- director breakdown（导演分场拆解）
+- production planning（制片规划）
 一路推进到可交接的多层资产包。
 
 ### 注意
