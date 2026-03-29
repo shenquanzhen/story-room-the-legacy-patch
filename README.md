@@ -1,4 +1,4 @@
-# story-room-the-legacy-patch
+# OpenClaw 全季（多集）剧本自动化生成
 
 ![Status](https://img.shields.io/badge/status-active-success)
 ![Language](https://img.shields.io/badge/language-Chinese%20%2F%20English-blue)
@@ -369,50 +369,23 @@ projects/<your-project>/
 
 ## 推送到 GitHub（Passkey / 浏览器登录）
 
-**终端里的 `git` 不能直接扫 Passkey**，但可以用 **GitHub CLI（`gh`）** 打开浏览器登录（网页上可用 Passkey），再由 `gh` 帮你配置 HTTPS 凭据，之后 `git push` 即可。
+命令行里的 `git` 不能直接扫 Passkey。推荐用 **GitHub CLI（`gh`）** 打开浏览器登录（网页可用 Passkey），由 `gh` 配置 HTTPS 凭据后再 `git push`。
 
-### 执行环境
-
-- **推荐：** 在 **本地 WSL 终端** 操作，目录：`/root/.openclaw/story-room-the-legacy-patch`（若你的 WSL 用户名不是 `root`，请改成对应 home 下的路径）。
-- **不推荐：** 在阿里云等远端服务器上登录你的个人 GitHub（除非你有意把部署与仓库绑定在同一环境）。
-
-### 操作步骤
-
-1. **在 github.com 新建仓库**  
-   新建空仓库即可；**不要**勾选 “Add a README”，避免与本地首次推送冲突。
-
-2. **在 WSL 里安装并登录 GitHub CLI（这里用 Passkey 最顺）**
+**环境：** 本地 **WSL**，目录 `/root/.openclaw/story-room-the-legacy-patch`（按实际 home 调整）。
 
 ```bash
-# 若尚未安装 gh（Ubuntu/Debian 示例）
-sudo apt update && sudo apt install -y gh
-
+sudo apt update && sudo apt install -y gh   # 若未安装
 cd /root/.openclaw/story-room-the-legacy-patch
+gh auth login    # 选 GitHub.com、HTTPS、浏览器登录
 
-gh auth login
-```
-
-在 `gh auth login` 中建议选择：**GitHub.com → HTTPS → 用浏览器登录**。浏览器打开后可用 **Passkey / 扫码** 完成账号验证；完成后 `gh` 会配置 Git 的凭据缓存。
-
-3. **提交并推送**
-
-```bash
-cd /root/.openclaw/story-room-the-legacy-patch
-git add -A
-git status   # 确认将要提交的文件列表
-git commit -m "chore: initial public sync"   # 若已有提交且仅缺远程，可跳过 add/commit
-git branch -M main    # 若当前分支是 master 且你希望与 GitHub 默认 main 对齐
-git remote remove origin 2>/dev/null || true
-git remote add origin https://github.com/<你的用户名>/<仓库名>.git
+git add -A && git status
+git commit -m "chore: sync"    # 有变更时再提交
+git branch -M main
+git remote add origin https://github.com/<用户>/<仓库>.git   # 首次
 git push -u origin main
 ```
 
-若你**保留本地分支名为 `master`** 且远端也是 `master`，则把上面最后两行改为：`git push -u origin master`。
-
-**预期正常：** 推送过程列出对象并显示 “Writing objects: 100% …”；GitHub 网页刷新可见代码。  
-**常见错误：** `Authentication failed` → 重新执行 `gh auth login`；`remote origin already exists` → 先 `git remote remove origin` 再 `git remote add …`。
-
-**安全提示：** 不要把 **Personal Access Token** 或密码写进 `git remote` 的 URL；用 `gh auth login` 即可。
+**成功：** 显示 Writing objects 100%，远端能看到文件。**失败：** `Authentication failed` → 重跑 `gh auth login`；`remote origin already exists` → `git remote remove origin` 后重加。勿把 Token 写进 remote URL。
 
 ---
 
