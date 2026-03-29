@@ -4,3 +4,15 @@
 *.db
 .DS_Store
 Thumbs.db
+
+# Secrets & local credentials (defense in depth before any push)
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+id_rsa
+*credentials*.json
+service-account*.json
+.token
+*.token

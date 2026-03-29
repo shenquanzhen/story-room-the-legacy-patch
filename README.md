@@ -28,7 +28,7 @@
 - [推荐阅读顺序](#推荐阅读顺序)
 - [仓库特色](#仓库特色)
 - [注意事项](#注意事项)
-- [当前仓库状态说明](#当前仓库状态说明)
+- [当前仓库状态说明（含 GitHub 推送 / Passkey）](#当前仓库状态说明)
 - [适合谁](#适合谁)
 - [License--使用建议](#license--使用建议)
 
@@ -366,6 +366,53 @@ projects/<your-project>/
 - 一个完整 sample project
 
 如果对外发布，建议明确区分二者角色。
+
+## 推送到 GitHub（Passkey / 浏览器登录）
+
+**终端里的 `git` 不能直接扫 Passkey**，但可以用 **GitHub CLI（`gh`）** 打开浏览器登录（网页上可用 Passkey），再由 `gh` 帮你配置 HTTPS 凭据，之后 `git push` 即可。
+
+### 执行环境
+
+- **推荐：** 在 **本地 WSL 终端** 操作，目录：`/root/.openclaw/story-room-the-legacy-patch`（若你的 WSL 用户名不是 `root`，请改成对应 home 下的路径）。
+- **不推荐：** 在阿里云等远端服务器上登录你的个人 GitHub（除非你有意把部署与仓库绑定在同一环境）。
+
+### 操作步骤
+
+1. **在 github.com 新建仓库**  
+   新建空仓库即可；**不要**勾选 “Add a README”，避免与本地首次推送冲突。
+
+2. **在 WSL 里安装并登录 GitHub CLI（这里用 Passkey 最顺）**
+
+```bash
+# 若尚未安装 gh（Ubuntu/Debian 示例）
+sudo apt update && sudo apt install -y gh
+
+cd /root/.openclaw/story-room-the-legacy-patch
+
+gh auth login
+```
+
+在 `gh auth login` 中建议选择：**GitHub.com → HTTPS → 用浏览器登录**。浏览器打开后可用 **Passkey / 扫码** 完成账号验证；完成后 `gh` 会配置 Git 的凭据缓存。
+
+3. **提交并推送**
+
+```bash
+cd /root/.openclaw/story-room-the-legacy-patch
+git add -A
+git status   # 确认将要提交的文件列表
+git commit -m "chore: initial public sync"   # 若已有提交且仅缺远程，可跳过 add/commit
+git branch -M main    # 若当前分支是 master 且你希望与 GitHub 默认 main 对齐
+git remote remove origin 2>/dev/null || true
+git remote add origin https://github.com/<你的用户名>/<仓库名>.git
+git push -u origin main
+```
+
+若你**保留本地分支名为 `master`** 且远端也是 `master`，则把上面最后两行改为：`git push -u origin master`。
+
+**预期正常：** 推送过程列出对象并显示 “Writing objects: 100% …”；GitHub 网页刷新可见代码。  
+**常见错误：** `Authentication failed` → 重新执行 `gh auth login`；`remote origin already exists` → 先 `git remote remove origin` 再 `git remote add …`。
+
+**安全提示：** 不要把 **Personal Access Token** 或密码写进 `git remote` 的 URL；用 `gh auth login` 即可。
 
 ---
 
