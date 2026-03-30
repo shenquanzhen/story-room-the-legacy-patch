@@ -1,3 +1,5 @@
+[**中文**](./README.md) | [**English**](./README_EN.md)
+
 # story-room-the-legacy-patch
 
 ![Status](https://img.shields.io/badge/status-active-success)

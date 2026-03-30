@@ -1,3 +1,5 @@
+[**中文**](./README.md) | [**English**](./README_EN.md)
+
 # OpenClaw 全季（多集）剧本自动化生成
 
 ![Status](https://img.shields.io/badge/status-active-success)
@@ -355,6 +357,7 @@ projects/<your-project>/                 # 单个项目根目录
 
 - 不要把旧项目记忆直接混入新项目
 - MEMORY 只建议保留方法性长期记忆
+- `skills/**/SKILL.md` 建议补齐开头 YAML Frontmatter（`name/description`），以保证系统匹配与展示更稳定
 - 分工越清楚，review 越好做
 - 先锁结构，再做精修
 
